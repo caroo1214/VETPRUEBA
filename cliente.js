@@ -28,6 +28,9 @@ var Cliente = /** @class */ (function () {
     Cliente.prototype.getnumDeVisitas = function () {
         return this.numDeVisitas;
     };
+    Cliente.prototype.getListaMascotas = function () {
+        return this.listaMascotas;
+    };
     //setter
     Cliente.prototype.setNombre = function (Nombre) {
         this.nombre = Nombre;
@@ -48,9 +51,6 @@ var Cliente = /** @class */ (function () {
         else {
             console.log("!!Es cliente VIP¡¡");
         }
-    };
-    Cliente.prototype.getListaMascotas = function () {
-        return this.listaMascotas;
     };
     return Cliente;
 }());

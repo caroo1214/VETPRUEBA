@@ -54,28 +54,6 @@ var Veterinaria = /** @class */ (function () {
     Veterinaria.prototype.setListaPacientes = function (listaPacientes) {
         this.listaPacientes = listaPacientes;
     };
-    //agregar paciente: MASCOTA
-    Veterinaria.prototype.agregarPaciente = function (listaPacientes) {
-        this.listaPacientes.push(listaPacientes);
-        console.log("Paciente agregado: ".concat(listaPacientes.datosAnimal()));
-    };
-    //eliminar mascota
-    Veterinaria.prototype.bajaPaciente = function (id) {
-        var index = -1;
-        for (var i = 0; i < this.listaPacientes.length; i++) {
-            if (this.listaPacientes[i].id === id) {
-                index = i;
-                break;
-            }
-            if (index !== -1) {
-                var pacienteEliminado = this.listaPacientes.splice(index, 1)[0];
-                console.log("Paciente eliminado: ".concat(pacienteEliminado.datosAnimal()));
-            }
-            else {
-                console.log("Paciente no encontrado para eliminar");
-            }
-        }
-    };
     return Veterinaria;
 }());
 exports.Veterinaria = Veterinaria;

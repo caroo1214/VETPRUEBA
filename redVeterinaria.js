@@ -34,38 +34,10 @@ var RedVeterinaria = /** @class */ (function () {
     RedVeterinaria.prototype.setProveedores = function (proveedores) {
         this.proveedores = proveedores;
     };
-    //proovedores agregar
-    RedVeterinaria.prototype.agregarProveedores = function (proveedores) {
-        this.proveedores.push(proveedores);
-        console.log("Proveedor agregado: ".concat(proveedores.obtenerInformacion()));
-    };
-    //PROVEEDORES ELIMINARLOS
-    RedVeterinaria.prototype.eliminarProveedores = function (id) {
-        var indice = -1;
-        for (var i = 0; i < this.proveedores.length; i++) {
-            if (this.proveedores[i].id === id) {
-                indice = i;
-                break;
-            }
-        }
-        if (indice !== -1) {
-            var proveedorEliminado = this.proveedores.splice(indice, 1)[0];
-            console.log("Proveedor eliminado: ".concat(proveedorEliminado.obtenerInformacion()));
-        }
-        else {
-            console.log("Proveedor no encontrado para eliminar");
-        }
-    };
-    //modif
-    RedVeterinaria.prototype.modificarProveedor = function (Proveedor) {
-        {
-            this.proveedores.push(Proveedor);
-        }
-    };
     return RedVeterinaria;
 }());
 exports.RedVeterinaria = RedVeterinaria;
-//------------------FUNCIONES PARA PROVEEDORES-----------------
+//------------------FUNCIONES PARA PROVEEDORES--
 //Funcion para crear nuevo Proveedor
 function crearProveedor(arrProveedor) {
     var nombre = readlineSync.question("Ingrese nombre y apellido del proveedor: ");
@@ -99,7 +71,7 @@ function borrarProveedor(proveedor) {
     }
     console.log(proveedor);
 }
-// ------------------------------------------Funciones para Veterinarias---------------------------------------------------- 
+// Funciones para Veterinarias------------
 //Crear Veterinaria
 function crearVeterinaria(arrVeterinaria, arrClientes, arrPacientes) {
     var nombre = readlineSync.question("Ingrese el nombre de la veterinaria: ");

@@ -66,32 +66,6 @@ export class Veterinaria {
         this.listaPacientes = listaPacientes;
     }
 
-    //agregar paciente: MASCOTA
-    public agregarPaciente(listaPacientes: Paciente): void {
-        this.listaPacientes.push(listaPacientes);
-        console.log(`Paciente agregado: ${listaPacientes.datosAnimal()}`);
-      }
-
-
-    //eliminar mascota
-      public bajaPaciente(id: number): void {
-        let index = -1;
-        for (let i = 0; i < this.listaPacientes.length; i++) {
-          if (this.listaPacientes[i].id === id) {
-            index = i;
-            break;
-          }
-
-    
-        if (index !== -1) {
-          const pacienteEliminado = this.listaPacientes.splice(index, 1)[0];
-          console.log(`Paciente eliminado: ${pacienteEliminado.datosAnimal()}`);
-        } else {
-          console.log("Paciente no encontrado para eliminar");
-        }
-        
-    }
-}
 }
 
   

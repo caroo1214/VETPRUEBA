@@ -1,5 +1,4 @@
-import {Paciente} from './paciente';
-
+import { Paciente } from "./paciente";
 
 /*Clientes: nombre, teléfono, si es VIP (cliente recurrente, en el cual se guarda el número de visitas e 
 incrementarlo cada vez que se realiza una y para ser VIP tiene que tener 5 o mas) 
@@ -10,15 +9,17 @@ baja y modificación de los mismos. */
  export class Cliente {
     private nombre:string;
     private telefono:number;
-    private idDueño:number;
+    private id:number;
     private numDeVisitas:number;
-    
+    private listaMascotas: Paciente[];
+
     //constructor
-    public constructor(nombre:string, telefono: number,idDueño:number){
+    public constructor(nombre:string, telefono: number,id:number){
         this.nombre=nombre;
         this.telefono=telefono;
-        this.idDueño=idDueño;
-        this.numDeVisitas=0
+        this.id=id;
+        this.numDeVisitas=0 ;
+        this.listaMascotas= [];
     }
     
 
@@ -32,13 +33,18 @@ baja y modificación de los mismos. */
         return this.telefono
     } 
     
-    public getIdDueño(): number{
-        return this.idDueño
+    public getId(): number{
+        return this.id
     } 
 
     public getnumDeVisitas():number{
         return this.numDeVisitas
     }
+
+    public getListaMascotas(){
+        return this.listaMascotas
+    }
+    
 
 
 

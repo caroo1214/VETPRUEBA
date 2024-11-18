@@ -45,49 +45,9 @@ import * as readlineSync from 'readline-sync';
     
   }
 
-//proovedores agregar
-  
-    public agregarProveedores(proveedores: Proveedor): void {
-      this.proveedores.push(proveedores);
-      console.log(`Proveedor agregado: ${proveedores.obtenerInformacion()}`);
-    }
-  
-
-    //PROVEEDORES ELIMINARLOS
-    public eliminarProveedores(id: number): void {
-      let indice = -1;
-      for (let i = 0; i < this.proveedores.length; i++) {
-        if (this.proveedores[i].id === id) {
-          indice = i;
-          break;
-        }
-      }
-      if (indice !== -1) {
-        const proveedorEliminado = this.proveedores.splice(indice, 1)[0];
-        console.log(
-          `Proveedor eliminado: ${proveedorEliminado.obtenerInformacion()}`
-        );
-      } else {
-        console.log("Proveedor no encontrado para eliminar");
-      }
-    }
-  
-    //modif
-    modificarProveedor(Proveedor:Proveedor){{
-      this.proveedores.push(Proveedor);
-    }
   }
-}
 
-
-
-
-
-
-
-
-
-//------------------FUNCIONES PARA PROVEEDORES-----------------
+//------------------FUNCIONES PARA PROVEEDORES--
 
 
 //Funcion para crear nuevo Proveedor
@@ -132,13 +92,13 @@ export function borrarProveedor(proveedor: Proveedor[]){
   console.log(proveedor)
 }
 
-// ------------------------------------------Funciones para Veterinarias---------------------------------------------------- 
+// Funciones para Veterinarias------------
 
 
 
 //Crear Veterinaria
 
-export function crearVeterinaria(arrVeterinaria: Array<Veterinaria>, arrClientes: Array<Cliente>, arrPacientes: Array <Paciente>){
+export function crearVeterinaria(arrVeterinaria: Veterinaria[], arrClientes: Cliente[], arrPacientes: Paciente[]){
 	let nombre : string = readlineSync.question("Ingrese el nombre de la veterinaria: ");
 	let direccion: string = readlineSync.question("ingrese dirección: ")
 	let id: number = crearNumRandom(1000);
@@ -158,7 +118,7 @@ export function crearVeterinaria(arrVeterinaria: Array<Veterinaria>, arrClientes
 
 //Modificar veterinaria
 
-export function modificarVeterinaria(arrVeterinarias: Array<Veterinaria>, posicion: number, arrClientes: Array<Cliente>, arrPacientes: Array<Paciente>){
+export function modificarVeterinaria(arrVeterinarias: Veterinaria[], posicion: number, arrClientes: Array<Cliente>, arrPacientes: Array<Paciente>){
 	let nombre : string = readlineSync.question("Ingrese el nuevo nombre: ");
 	let direccion: string = readlineSync.question("ingrese nueva dirección: ");
 
@@ -173,7 +133,7 @@ export function modificarVeterinaria(arrVeterinarias: Array<Veterinaria>, posici
 
 //Funcion Borrar Veterinaria  
 
-export function eliminarVeterinaria(arrVeterinarias: Array<Veterinaria>, id: number):void{
+export function eliminarVeterinaria(arrVeterinarias:Veterinaria[], id: number):void{
 
   for (let i= 0; i< arrVeterinarias.length; i++){
     if (id === arrVeterinarias[i].getId()){
