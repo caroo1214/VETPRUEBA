@@ -116,17 +116,6 @@ console.log("Vehículo agregado:");
 console.log(registro.getListaVehiculo());
 */
 
-import * as readlineSync from 'readline-sync';
-
-
-import { cargarCliente, crearCliente, crearNumRandom, existeId, cargarProveedor, crearProveedor, modificarProveedor, borrarProveedor, cargarPaciente, crearPaciente, cargarVeterinarias, crearVeterinaria, modificarVeterinaria, eliminarVeterinaria, borrarCliente, modificarNombreCliente, modificarTelefonoCliente, eliminarPaciente, modificarPaciente } from './helper';
-
-
-import Cliente from './class/cliente';
-import Paciente from './class/paciente';
-import Proveedor from './class/proveedores';
-import Veterinaria from './class/veterinaria';
-import Sucursales from './class/sucursales';
 
 
 

@@ -198,100 +198,100 @@ export function modificarTelefonoCliente(arrCliente: Cliente[]){
   }
 }
 
-//---------------------------FUNCION PARA PACIENTE-----------------------
+// //---------------------------FUNCION PARA PACIENTE-----------------------
 
 
-//Funcion para crear nuevo paciente
-export function crearPaciente(arrCliente:Cliente[], arrPacientes:Paciente[]){
-  let nombre:string=readlineSync.question("Ingrese el nombre del paciente: ");
-  let especie:string=readlineSync.question("Ingrese la especie del Paciente: ");
-  let idDeCliente=readlineSync.questionInt("Ingrese id del Cliente: ");
+// //Funcion para crear nuevo paciente
+// export function crearPaciente(arrCliente:Cliente[], arrPacientes:Paciente[]){
+//   let nombre:string=readlineSync.question("Ingrese el nombre del paciente: ");
+//   let especie:string=readlineSync.question("Ingrese la especie del Paciente: ");
+//   let idDeCliente=readlineSync.questionInt("Ingrese id del Cliente: ");
 
-  let ubicacionId:number=buscarPorId(arrCliente,idDeCliente);
+//   let ubicacionId:number=buscarPorId(arrCliente,idDeCliente);
   
-  if(ubicacionId!= -1){
-    let nuevoPaciente:Paciente=new Paciente(nombre,especie,idDeCliente);
-    arrPacientes.push(nuevoPaciente);
-    arrCliente[ubicacionId].getListaMascotas().push(nuevoPaciente);
-  }else{
-    console.log("No se encontro Id ingresado")
-  }
-  return arrPacientes
-}
+//   if(ubicacionId!= -1){
+//     let nuevoPaciente:Paciente=new Paciente(nombre,especie,idDeCliente);
+//     arrPacientes.push(nuevoPaciente);
+//     arrCliente[ubicacionId].getListaMascotas().push(nuevoPaciente);
+//   }else{
+//     console.log("No se encontro Id ingresado")
+//   }
+//   return arrPacientes
+// }
 
-//Funcion eliminar paciente
+// //Funcion eliminar paciente
 
-export function eliminarPaciente(arrCliente:Cliente[],arrPacientes:Paciente[]):void {
-  let idCliente:number=readlineSync.questionInt("Ingrese Id del Cliente, para eliminar paciente: ");
-  let ubicacionId=buscarPorId(arrCliente,idCliente);
+// export function eliminarPaciente(arrCliente:Cliente[],arrPacientes:Paciente[]):void {
+//   let idCliente:number=readlineSync.questionInt("Ingrese Id del Cliente, para eliminar paciente: ");
+//   let ubicacionId=buscarPorId(arrCliente,idCliente);
  
   
-  if(ubicacionId!=-1){
-    console.log("Lista de pacientes "+ JSON.stringify(arrCliente[ubicacionId].getListaMascotas()) )
-    let borrarPaciente=readlineSync.question("Ingrese el nombre del paciente a eliminar: ")
-    let eliminar:boolean=false;
-    let i:number=0;
+//   if(ubicacionId!=-1){
+//     console.log("Lista de pacientes "+ JSON.stringify(arrCliente[ubicacionId].getListaMascotas()) )
+//     let borrarPaciente=readlineSync.question("Ingrese el nombre del paciente a eliminar: ")
+//     let eliminar:boolean=false;
+//     let i:number=0;
 
-    while((eliminar==false) && (i<arrCliente[ubicacionId].getListaMascotas().length)){
-      if(borrarPaciente == arrCliente[ubicacionId].getListaMascotas()[i].getNombre()){
-        eliminar=true;
-        arrCliente[ubicacionId].getListaMascotas().splice(i,1)
-      }else{
-        i=i+1
-      }
-    }
+//     while((eliminar==false) && (i<arrCliente[ubicacionId].getListaMascotas().length)){
+//       if(borrarPaciente == arrCliente[ubicacionId].getListaMascotas()[i].getNombre()){
+//         eliminar=true;
+//         arrCliente[ubicacionId].getListaMascotas().splice(i,1)
+//       }else{
+//         i=i+1
+//       }
+//     }
 
-    let eliminarEnListaGeneral:boolean=false;
-    i=0;
-    while((eliminarEnListaGeneral==false)&&(i<arrPacientes.length)){
-      if((idCliente==arrPacientes[i].getIdDueño())&& (borrarPaciente==arrPacientes[i].getNombre())){
-      eliminarEnListaGeneral=true;
-      arrPacientes.splice(i,1);
-      }else{
-        i=i+1
-      }
-    }
+//     let eliminarEnListaGeneral:boolean=false;
+//     i=0;
+//     while((eliminarEnListaGeneral==false)&&(i<arrPacientes.length)){
+//       if((idCliente==arrPacientes[i].getIdDueño())&& (borrarPaciente==arrPacientes[i].getNombre())){
+//       eliminarEnListaGeneral=true;
+//       arrPacientes.splice(i,1);
+//       }else{
+//         i=i+1
+//       }
+//     }
     
-    if(eliminar ==true && eliminarEnListaGeneral==true){
-      console.log("Se elimino exitosamente, el paciente ingresado")
-    }else{
-      console.log("No se encontro el nombre del Paciente ingresado")
-    }
+//     if(eliminar ==true && eliminarEnListaGeneral==true){
+//       console.log("Se elimino exitosamente, el paciente ingresado")
+//     }else{
+//       console.log("No se encontro el nombre del Paciente ingresado")
+//     }
     
-  }else{
-    console.log("El Id del cliente Ingresado no se encontro")
-  }
+//   }else{
+//     console.log("El Id del cliente Ingresado no se encontro")
+//   }
   
   
-}
+// }
 
-//funcion para modificar Paciente
+// //funcion para modificar Paciente
 
-export function modificarPaciente(arrCliente:Cliente[], arrPacientes:Paciente[]):void {
-  let idCliente:number=readlineSync.questionInt("Ingrese Id del Cliente, para Modificar el paciente: ");
-  let ubicacionId=buscarPorId(arrCliente,idCliente);
+// export function modificarPaciente(arrCliente:Cliente[], arrPacientes:Paciente[]):void {
+//   let idCliente:number=readlineSync.questionInt("Ingrese Id del Cliente, para Modificar el paciente: ");
+//   let ubicacionId=buscarPorId(arrCliente,idCliente);
  
   
-  if(ubicacionId!=-1){
-    console.log("Lista de pacientes "+ JSON.stringify(arrCliente[ubicacionId].getListaMascotas()) )
-    let pacienteModificar=readlineSync.question("Ingrese el nombre del paciente a Modificar: ")
-    let ok:boolean=false;
-    let i:number=0;
+//   if(ubicacionId!=-1){
+//     console.log("Lista de pacientes "+ JSON.stringify(arrCliente[ubicacionId].getListaMascotas()) )
+//     let pacienteModificar=readlineSync.question("Ingrese el nombre del paciente a Modificar: ")
+//     let ok:boolean=false;
+//     let i:number=0;
 
-    while((ok==false) && (i<arrCliente[ubicacionId].getListaMascotas().length)){
-      if(pacienteModificar == arrCliente[ubicacionId].getListaMascotas()[i].getNombre()){
-        ok=true;
-        let nuevoNombre=readlineSync.question("Ingrese el nuevo nombre del paciente: ")
-        let nuevaEspecie=readlineSync.question("Ingrese nuevamente especie del paciente: ")
-        arrCliente[ubicacionId].getListaMascotas()[i].setNombre(nuevoNombre);
-        arrCliente[ubicacionId].getListaMascotas()[i].setEspecie(nuevaEspecie);
-        console.log("El paciente se modifico exitosamente")
-      }else{
-        i=i+1
-      }
-    }
-  }else{
-    console.log("El Id del cliente Ingresado no se encontro")
-  }
+//     while((ok==false) && (i<arrCliente[ubicacionId].getListaMascotas().length)){
+//       if(pacienteModificar == arrCliente[ubicacionId].getListaMascotas()[i].getNombre()){
+//         ok=true;
+//         let nuevoNombre=readlineSync.question("Ingrese el nuevo nombre del paciente: ")
+//         let nuevaEspecie=readlineSync.question("Ingrese nuevamente especie del paciente: ")
+//         arrCliente[ubicacionId].getListaMascotas()[i].setNombre(nuevoNombre);
+//         arrCliente[ubicacionId].getListaMascotas()[i].setEspecie(nuevaEspecie);
+//         console.log("El paciente se modifico exitosamente")
+//       }else{
+//         i=i+1
+//       }
+//     }
+//   }else{
+//     console.log("El Id del cliente Ingresado no se encontro")
+//   }
   
-}
+//}

@@ -10,14 +10,14 @@ baja y modificación de los mismos. */
  export class Cliente {
     private nombre:string;
     private telefono:number;
-    private idDueño:number;
+    private id:number;
     private numDeVisitas:number;
     
     //constructor
     public constructor(nombre:string, telefono: number,idDueño:number){
         this.nombre=nombre;
         this.telefono=telefono;
-        this.idDueño=idDueño;
+        this.id=idDueño;
         this.numDeVisitas=0
     }
     
@@ -32,8 +32,8 @@ baja y modificación de los mismos. */
         return this.telefono
     } 
     
-    public getIdDueño(): number{
-        return this.idDueño
+    public getId(): number{
+        return this.id
     } 
 
     public getnumDeVisitas():number{

@@ -9,14 +9,14 @@
   export class Paciente{
     private nombre: string;
     private especie: string;
-    private idDueño: number; 
+    public id: number; 
 
     //constructor
 
     public constructor(nombre: string, especie: string,idDueño: number){
         this.nombre = nombre;
         this.especie = especie;
-        this.idDueño = idDueño;
+        this.id = idDueño;
     }
 
     //getters
@@ -28,8 +28,8 @@
         return this.especie
     }
 
-   public getIdDueño():number{
-        return this.idDueño
+   public getId():number{
+        return this.id
     }
     
     
@@ -58,7 +58,7 @@
     }
 
     public datosAnimal(): string {
-        return `paciente: Nombre: ${this.nombre}, Especie: ${this.especie}, Dueño: ${this.idDueño}`;
+        return `paciente: Nombre: ${this.nombre}, Especie: ${this.especie}, Dueño: ${this.id}`;
       }
 
       //modificar paciente
