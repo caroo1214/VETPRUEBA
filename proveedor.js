@@ -39,19 +39,6 @@ var Proveedor = /** @class */ (function () {
     Proveedor.prototype.obtenerInformacion = function () {
         return "id: ".concat(this.id, ", nombre: ").concat(this.nombre, ", numeroTelefono: ").concat(this.telefono);
     };
-    //modificarlo
-    Proveedor.prototype.modificarProveedor = function (nuevoNombre, nuevoId, nuevoTelefono) {
-        var proveedorAModificar; //me lo agrega
-        if (proveedorAModificar) {
-            proveedorAModificar.nombre = nuevoNombre;
-            proveedorAModificar.id = nuevoId;
-            proveedorAModificar.telefono = nuevoTelefono;
-            console.log("Proveedor modificado: ".concat(proveedorAModificar.obtenerInformacion()));
-        }
-        else {
-            console.log(" El proveedor no está registrado");
-        }
-    };
     return Proveedor;
 }());
 exports.Proveedor = Proveedor;

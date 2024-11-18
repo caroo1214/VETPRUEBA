@@ -54,20 +54,5 @@
         return `id: ${this.id}, nombre: ${this.nombre}, numeroTelefono: ${this.telefono}`;
       }
 
-//modificarlo
-     public modificarProveedor(  nuevoNombre: string, nuevoId: number,nuevoTelefono: number): void {
-        let proveedorAModificar: Proveedor| undefined;//me lo agrega
-       
-        if (proveedorAModificar) {
-            proveedorAModificar.nombre = nuevoNombre;
-            proveedorAModificar.id = nuevoId;
-            proveedorAModificar.telefono = nuevoTelefono;
-
-          console.log(`Proveedor modificado: ${proveedorAModificar.obtenerInformacion()}`);
-        } else {
-          console.log(" El proveedor no está registrado");
-        }
-      }
-
 
     }

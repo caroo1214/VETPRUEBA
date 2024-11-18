@@ -2,7 +2,7 @@ import { Cliente } from "./cliente";
 import { Paciente } from "./paciente";
 import { Proveedor } from "./proveedor";
 import { Veterinaria } from "./sucursalVeterinaria";
-import { existeId, crearNumRandom} from "./sucursalVeterinaria";
+import { existeId, crearId} from "./sucursalVeterinaria";
 
 
 import * as readlineSync from 'readline-sync';
@@ -56,9 +56,9 @@ export function crearProveedor(arrProveedor: Proveedor[]){
   let nombre: string = readlineSync.question("Ingrese nombre y apellido del proveedor: ");
   let telefono: number = readlineSync.questionInt("Ingrese el telefono del proveedor: ");
     
-  let id: number = crearNumRandom(1000);
+  let id: number = crearId(20000);
   while(existeId(arrProveedor,id)==true){
-    id=crearNumRandom(1000);
+    id=crearId(20000);
   }
 
   let nuevoProveedor: Proveedor = new Proveedor(nombre, telefono, id);
@@ -101,14 +101,14 @@ export function borrarProveedor(proveedor: Proveedor[]){
 export function crearVeterinaria(arrVeterinaria: Veterinaria[], arrClientes: Cliente[], arrPacientes: Paciente[]){
 	let nombre : string = readlineSync.question("Ingrese el nombre de la veterinaria: ");
 	let direccion: string = readlineSync.question("ingrese dirección: ")
-	let id: number = crearNumRandom(1000);
+	let id: number = crearId(20000);
     
   while(existeId(arrVeterinaria,id)==true){
-    id=crearNumRandom(1000);
+    id=crearId(20000);
   }
 	
-	let listaClientes: Array<Cliente> = arrClientes;
-	let listaGeneralMascotas: Array<Paciente> = arrPacientes;
+	let listaClientes: Cliente[] = arrClientes;
+	let listaGeneralMascotas: Paciente[]= arrPacientes;
 
   let nuevaVeterinaria: Veterinaria = new Veterinaria(nombre, direccion, id, listaClientes, listaGeneralMascotas);
   arrVeterinaria.push(nuevaVeterinaria)

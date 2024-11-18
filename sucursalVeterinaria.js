@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Veterinaria = void 0;
-exports.crearNumRandom = crearNumRandom;
+exports.crearId = crearId;
 exports.existeId = existeId;
 exports.crearCliente = crearCliente;
 exports.buscarPorId = buscarPorId;
@@ -57,7 +57,7 @@ var Veterinaria = /** @class */ (function () {
     return Veterinaria;
 }());
 exports.Veterinaria = Veterinaria;
-function crearNumRandom(max) {
+function crearId(max) {
     return Math.floor(Math.random() * max);
 }
 // -----------------FUNCION PARA CLIENTES------------------
@@ -77,9 +77,9 @@ function existeId(arreglo, id) {
 function crearCliente(arrCliente) {
     var nombre = readlineSync.question("Ingrese nombre y apellido del cliente: ");
     var telefono = readlineSync.questionInt("Ingrese el telefono del cliente: ");
-    var id = crearNumRandom(1000);
+    var id = crearId(20000);
     while (existeId(arrCliente, id) == true) {
-        id = crearNumRandom(1000);
+        id = crearId(20000);
     }
     var nuevoCliente = new cliente_1.Cliente(nombre, telefono, id);
     arrCliente.push(nuevoCliente);
@@ -157,11 +157,11 @@ function crearPaciente(arrCliente, arrPacientes) {
 }
 //Funcion eliminar paciente
 function eliminarPaciente(arrCliente, arrPacientes) {
-    var idCliente = readlineSync.questionInt("Ingrese Id del Cliente, para eliminar paciente: ");
+    var idCliente = readlineSync.questionInt("Ingrese Id del Cliente, para dar de baja el paciente: ");
     var ubicacionId = buscarPorId(arrCliente, idCliente);
     if (ubicacionId != -1) {
         console.log("Lista de pacientes " + JSON.stringify(arrCliente[ubicacionId].getListaMascotas()));
-        var borrarPaciente = readlineSync.question("Ingrese el nombre del paciente a eliminar: ");
+        var borrarPaciente = readlineSync.question("Ingrese el nombre del paciente a dar de baja: ");
         var eliminar = false;
         var i = 0;
         while ((eliminar == false) && (i < arrCliente[ubicacionId].getListaMascotas().length)) {

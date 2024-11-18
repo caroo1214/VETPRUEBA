@@ -42,9 +42,9 @@ exports.RedVeterinaria = RedVeterinaria;
 function crearProveedor(arrProveedor) {
     var nombre = readlineSync.question("Ingrese nombre y apellido del proveedor: ");
     var telefono = readlineSync.questionInt("Ingrese el telefono del proveedor: ");
-    var id = (0, sucursalVeterinaria_2.crearNumRandom)(1000);
+    var id = (0, sucursalVeterinaria_2.crearId)(20000);
     while ((0, sucursalVeterinaria_2.existeId)(arrProveedor, id) == true) {
-        id = (0, sucursalVeterinaria_2.crearNumRandom)(1000);
+        id = (0, sucursalVeterinaria_2.crearId)(20000);
     }
     var nuevoProveedor = new proveedor_1.Proveedor(nombre, telefono, id);
     arrProveedor.push(nuevoProveedor);
@@ -76,9 +76,9 @@ function borrarProveedor(proveedor) {
 function crearVeterinaria(arrVeterinaria, arrClientes, arrPacientes) {
     var nombre = readlineSync.question("Ingrese el nombre de la veterinaria: ");
     var direccion = readlineSync.question("ingrese dirección: ");
-    var id = (0, sucursalVeterinaria_2.crearNumRandom)(1000);
+    var id = (0, sucursalVeterinaria_2.crearId)(20000);
     while ((0, sucursalVeterinaria_2.existeId)(arrVeterinaria, id) == true) {
-        id = (0, sucursalVeterinaria_2.crearNumRandom)(1000);
+        id = (0, sucursalVeterinaria_2.crearId)(20000);
     }
     var listaClientes = arrClientes;
     var listaGeneralMascotas = arrPacientes;

@@ -9,7 +9,8 @@
   export class Paciente{
     private nombre: string;
     private especie: string;
-    private idDueño: number; 
+    private idDueño: number;
+    
 
     //constructor
 
@@ -61,25 +62,4 @@
         return `paciente: Nombre: ${this.nombre}, Especie: ${this.especie}, Dueño: ${this.idDueño}`;
       }
 
-      //modificar paciente
-    
-      public modificarPaciente(  nombreNuevo: string, especieNuevo: string): void {
-        let pacienteAModificar: Paciente| undefined;//me lo agrega
-       
-        if (pacienteAModificar) {
-            pacienteAModificar.nombre = nombreNuevo;
-            pacienteAModificar.especie = especieNuevo;
-          console.log(`Paciente modificado: ${pacienteAModificar.datosAnimal()}`);
-        } else {
-          console.log(" El paciente no está registrado");
-        }
-      }
-}
-/*
-public getCostoTotal(): number {
-  let precio = this.getPrecioBase();
-  if (this.limpieza) {
-      precio *= 1.10; // 10% adicional de limpieza
   }
-  return precio * this.iva; // Se agrega 21% de IVA
-}*/

@@ -3,9 +3,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var sucursalVeterinaria_1 = require("./sucursalVeterinaria");
 var redVeterinaria_1 = require("./redVeterinaria");
 //----------------------------CLIENTES----------------------
+/*let Paciente= new Paciente("matias",45455,565);
+
+let ListaPaciente = new Paciente("Ford", "gato",2);
+let  = new Moto("Gilera", "Smash Tunnig", 2022, "Azul");
+let siena: Auto= new Auto("Fiat", "Siena", 2019, "Gris", 5);
+
+let scania: Camion = new Camion
+
+("Scania", "R 450",2011, "Blanco");
+
+
+*/
 //Funcion para cargar un nuevo Cliente
 console.log("CARGAR UN NUEVO CLIENTE");
 var listaClientes = [];
+(0, sucursalVeterinaria_1.crearCliente)(listaClientes);
+(0, sucursalVeterinaria_1.crearCliente)(listaClientes);
 (0, sucursalVeterinaria_1.crearCliente)(listaClientes);
 console.table(listaClientes);
 //Funciones eliminar, modificar

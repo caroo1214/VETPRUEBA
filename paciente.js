@@ -43,26 +43,6 @@ var Paciente = /** @class */ (function () {
     Paciente.prototype.datosAnimal = function () {
         return "paciente: Nombre: ".concat(this.nombre, ", Especie: ").concat(this.especie, ", Due\u00F1o: ").concat(this.idDueño);
     };
-    //modificar paciente
-    Paciente.prototype.modificarPaciente = function (nombreNuevo, especieNuevo) {
-        var pacienteAModificar; //me lo agrega
-        if (pacienteAModificar) {
-            pacienteAModificar.nombre = nombreNuevo;
-            pacienteAModificar.especie = especieNuevo;
-            console.log("Paciente modificado: ".concat(pacienteAModificar.datosAnimal()));
-        }
-        else {
-            console.log(" El paciente no está registrado");
-        }
-    };
     return Paciente;
 }());
 exports.Paciente = Paciente;
-/*
-public getCostoTotal(): number {
-  let precio = this.getPrecioBase();
-  if (this.limpieza) {
-      precio *= 1.10; // 10% adicional de limpieza
-  }
-  return precio * this.iva; // Se agrega 21% de IVA
-}*/ 

@@ -76,7 +76,7 @@ export class Veterinaria {
 
 
 
-export function crearNumRandom(max: number){
+export function crearId(max: number){
   return Math.floor(Math.random() * max)
 }
 
@@ -103,10 +103,10 @@ export function crearCliente(arrCliente: Cliente[]){
   let nombre: string = readlineSync.question("Ingrese nombre y apellido del cliente: ");
   let telefono: number = readlineSync.questionInt("Ingrese el telefono del cliente: ");
     
-  let id: number = crearNumRandom(1000);
+  let id: number = crearId(20000);
 
   while(existeId(arrCliente,id)==true){
-    id=crearNumRandom(1000);
+    id=crearId(20000);
   }
     
   let nuevoCliente : Cliente = new Cliente(nombre, telefono, id );
@@ -196,13 +196,13 @@ export function crearPaciente(arrCliente:Cliente[], arrPacientes:Paciente[]){
 //Funcion eliminar paciente
 
 export function eliminarPaciente(arrCliente:Cliente[],arrPacientes:Paciente[]):void {
-  let idCliente:number=readlineSync.questionInt("Ingrese Id del Cliente, para eliminar paciente: ");
+  let idCliente:number=readlineSync.questionInt("Ingrese Id del Cliente, para dar de baja el paciente: ");
   let ubicacionId=buscarPorId(arrCliente,idCliente);
  
   
   if(ubicacionId!=-1){
     console.log("Lista de pacientes "+ JSON.stringify(arrCliente[ubicacionId].getListaMascotas()) )
-    let borrarPaciente=readlineSync.question("Ingrese el nombre del paciente a eliminar: ")
+    let borrarPaciente=readlineSync.question("Ingrese el nombre del paciente a dar de baja: ")
     let eliminar:boolean=false;
     let i:number=0;
 
