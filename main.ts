@@ -2,121 +2,58 @@
 import { Paciente } from "./paciente";
 import { Cliente } from "./cliente";
 import { Proveedor } from "./proveedor";
-import { RedVeterinaria } from "./redVeterinaria"
+import { altaVeterinaria, RedVeterinaria, altaProveedores, bajaProveedores, modificarProveedores, modificarVeterinaria } from "./redVeterinaria"
+import {altaCliente, bajaCliente, altaPaciente, bajaPaciente, modificarNombreCliente, modificarTelefonoCliente} from "./sucursalVeterinaria"
 import { Veterinaria } from "./sucursalVeterinaria";
 import * as rls from 'readline-sync'
 
 
-//  BIENVENIDOS 
+//clietnes
 
-console.error("----------------------------")
-console.log (" * BIENVENIDOS * ");
+let listaClientes: Cliente[] = [];
 
+const cliente1 = new Cliente( "Amelia", 228452658, 5625)
+const cliente2 = new Cliente ("Carolina", 2284754715, 4785)
 
-//  MENU DE BIENVENIDA 
+listaClientes = [cliente1, cliente2]
+//pacientes
 
-let bienvenido : string = rls.question( " Presione la tecla X para ingresar ");
-while(true){
-    if (bienvenido === "X"){
-        console.error("------------------------------");
-        console.log("1_ RED DE VETERINARIA");break
-        console.log("2_ CLIENTES ");break
-        console.log("3_ PACIENTES");break
-        console.error ("------------------------------")
-    }
-}
+let listaGeneralMascotas: Paciente[] = [];
+
 //provee
+let listaProveedores: Proveedor[] = [];
 
-const RedVete = new RedVeterinaria();
+let RedVete = new RedVeterinaria();
 
 const proveedor1 = new Proveedor("Roberto Sanchez Dogui", 3386,95565 );
 const proveedor2 = new Proveedor("Analia Pedero sabrositos ", 228465325, 45218);
 const proveedor3 = new Proveedor("Distribuidora sabatini", 2284556523, 29864);
 
+listaProveedores = [proveedor1, proveedor2, proveedor3]
 
 
-RedVete.agregarProveedores(proveedor1);
-RedVete.agregarProveedores(proveedor2);
-RedVete.agregarProveedores(proveedor3);
-
-RedVete.eliminarProveedores(29864);
 
 
-//veterinaria
-
-const veterinaria = new Veterinaria("huellitas,","perez 455",6456465);
-
-const paciente1 = new Paciente("rocko", "perro",4564,48562);
-const paciente2 = new Paciente("Tomm","gato", 4455,7856)
-const paciente3 = new Paciente("nina", "Gato",4456,5862);
-
-veterinaria.agregarPaciente(paciente1);
-veterinaria.agregarPaciente(paciente2);
-veterinaria.agregarPaciente(paciente3);
+// RedVete.eliminarProveedores(29864);
 
 
-veterinaria.bajaPaciente(4564);
-// Listar 
-console.log("Lista de pacientes en el registro:");
-console.log(veterinaria.getListaPacientes()); // Llama al método para obtener la lista de vehículos.
+// //veterinaria
 
-/*
+// const veterinaria = new Veterinaria("huellitas,","perez 455",6456465, listaClientes, listaGeneralMascotas);
 
-import * as rls from 'readline-sync';
+// const paciente1 = new Paciente("rocko", "perro",4564,48562);
+// const paciente2 = new Paciente("Tomm","gato", 4455,7856)
+// const paciente3 = new Paciente("nina", "Gato",4456,5862);
 
-import { Vehiculo } from "./Vehiculo";
-
-import { RegistroAutomotor } from "./registroAutomotor";
-
-let registro = new RegistroAutomotor();
-
-let ford: Vehiculo = new Vehiculo("Ford", "Ka", "Hatchback", "Vehículo urbano y compacto");
-let motomel: Vehiculo = new Vehiculo("Motomel", "110cc", "Transporte urbano y recreativo", "Motocicleta de calle");
-let siena: Vehiculo = new Vehiculo("Fiat", "Siena", "Vehículo familiar y urbano", "Sedán");
-let scania: Vehiculo = new Vehiculo("Scania", "R 450", "Transporte de carga pesada", "Camión de larga distancia");
-
-// Agregar vehículos al registro
-registro.agregarVehiculo(ford);
-registro.agregarVehiculo(motomel);
-registro.agregarVehiculo(siena);
-registro.agregarVehiculo(scania);
-
-// Listar vehículos
-console.log("Lista de vehículos en el registro:");
-console.log(registro.getListaVehiculo()); // Llama al método para obtener la lista de vehículos.
-
-// Eliminar vehiculo.
-
-registro.eliminarVehiculo(ford);
-
-console.log("El vehículo eliminado es: " , ford);
-
-console.log(" Vehículo eliminado con exito ");
-console.log(registro.getListaVehiculo());
-
-// Vehiculo nuevo.
-let fitito: Vehiculo = new Vehiculo("fitito", "m83", "Transporte para pequeños ", " corta distancia");
-registro.agregarVehiculo( fitito);
+// veterinaria.altaPaciente(paciente1);
+// veterinaria.altaPaciente(paciente2);
+// veterinaria.altaPaciente(paciente3);
 
 
-console.log("El vehículo agregado es: " );
-
-// Ingreso de un vehiculo por el usuario.
-let marca: string = rls.question("Ingrese la marca del vehículo: ");
-let modelo: string = rls.question("Ingrese el modelo del vehículo: ");
-let tipo: string = rls.question("Ingrese el tipo del vehículo: ");
-let uso: string = rls.question("Ingrese el uso del vehículo: ");
-
-let nuevoVehiculo: Vehiculo = new Vehiculo(marca, modelo, tipo, uso);
-
-// Agregar el nuevo vehículo al registro
-registro.agregarVehiculo(nuevoVehiculo);
-
-console.log("Vehículo agregado:");
-console.log(registro.getListaVehiculo());
-*/
-
-
+// veterinaria.bajaPaciente(4564);
+// // Listar 
+// console.log("Lista de pacientes en el registro:");
+// console.log(veterinaria.getListaPacientes()); // Llama al método para obtener la lista de vehículos.
 
 
 
@@ -125,72 +62,133 @@ console.log(registro.getListaVehiculo());
 
 
 
-//Funcion para cargar un nuevo Cliente
+// //Funcion para cargar un nuevo Cliente
 
-console.log("CARGAR UN NUEVO CLIENTE")
-let listaClientes: Cliente[] = [];
-crearCliente(listaClientes);
-console.table(listaClientes);
+// console.log("CARGAR UN NUEVO CLIENTE")
+// let listaClientes: Cliente[] = [];
+// altaCliente(listaClientes);
+// console.table(listaClientes);
 
-//Funciones eliminar, modificar
+// //Funciones eliminar, modificar
 
-console.log("ELIMINAR UN CLIENTE");
-borrarCliente(listaClientes);
-console.log("MODIFICAR DATOS DE CLIENTES")
-modificarNombreCliente(listaClientes);
-modificarTelefonoCliente(listaClientes);
-console.table(listaClientes);
+// console.log("ELIMINAR UN CLIENTE");
+// bajaCliente(listaClientes);
+// console.log("MODIFICAR DATOS DE CLIENTES")
+// modificarNombreCliente(listaClientes);
+// modificarTelefonoCliente(listaClientes);
+// console.table(listaClientes);
 
-//-------------------PACIENTES---------------
-
-
-let listaGeneralMascotas: Paciente []=[];
-
-//Funcion para cargar un nuevo Paciente
-
-console.info("CARGAR UN NUEVO PACIENTE");
-crearPaciente(listaClientes, listaGeneralMascotas);
-console.log(listaGeneralMascotas);
-
-//Funciones eliminar
-
-console.info("ELIMINAR PACIENTE");
-
-eliminarPaciente(listaClientes,listaGeneralMascotas);
-
-console.log("MODIFICAR PACIENTE");
-modificarPaciente(listaClientes,listaGeneralMascotas);
-
-//------------------------VETERINARIAS------------------
+// //-------------------PACIENTES---------------
 
 
+// let listaGeneralMascotas: Paciente []=[];
 
+// //Funcion para cargar un nuevo Paciente
 
-//Funcion para cargar un nuevo Veterinaria
-console.info("CARGAR UNA NUEVA VETERINARIA");
-let arregloVeterinarias: Veterinaria[] = []
-crearVeterinaria(arregloVeterinarias, listaClientes, listaGeneralMascotas);
+// console.info("CARGAR UN NUEVO PACIENTE");
+// altaPaciente(listaClientes, listaGeneralMascotas);
+// console.log(listaGeneralMascotas);
 
-//Funciones eliminar, modificar
-console.log("ELIMINAR UNA VETERIANARIA");
-eliminarVeterinaria(arregloVeterinarias, 3);
-console.log("MODIFICAR UNA VETERIANARIA");
-modificarVeterinaria(arregloVeterinarias, 1, listaClientes, listaGeneralMascotas);
+// //Funciones eliminar
 
+// console.info("ELIMINAR PACIENTE");
 
-//----------------------PROVEDORES--------------------------
+// eliminarPaciente(listaClientes,listaGeneralMascotas);
+
+// console.log("MODIFICAR PACIENTE");
+// modificarPaciente(listaClientes,listaGeneralMascotas);
+
+// //------------------------VETERINARIAS------------------
 
 
 
-//Funcion para cargar un nuevo Proveedor 
 
-console.info("CARGAR UN NUEVO PROVEEDOR");
-let arregloProveedores: Proveedor[] = [];
-crearProveedor(arregloProveedores);
+// //Funcion para cargar un nuevo Veterinaria
+// console.info("CARGAR UNA NUEVA VETERINARIA");
+ let arregloVeterinarias: Veterinaria[] = []
+// crearVeterinaria(arregloVeterinarias, listaClientes, listaGeneralMascotas);
 
-//Funciones eliminar, modificar Proveedor
+// //Funciones eliminar, modificar
+// console.log("ELIMINAR UNA VETERIANARIA");
+// eliminarVeterinaria(arregloVeterinarias, 3);
+// console.log("MODIFICAR UNA VETERIANARIA");
+// modificarVeterinaria(arregloVeterinarias, 1, listaClientes, listaGeneralMascotas);
 
-console.info("ELIMINAR UN PROVEEDOR")
-borrarProveedor(arregloProveedores);
-console.info("MODIFICAR UN PROVEEDOR")
-modificarProveedor(arregloProveedores, 2);
+
+// //----------------------PROVEDORES--------------------------
+
+
+
+// //Funcion para cargar un nuevo Proveedor 
+
+// console.info("CARGAR UN NUEVO PROVEEDOR");
+// let arregloProveedores: Proveedor[] = [];
+// crearProveedor(arregloProveedores);
+
+// //Funciones eliminar, modificar Proveedor
+
+// console.info("ELIMINAR UN PROVEEDOR")
+// borrarProveedor(arregloProveedores);
+// console.info("MODIFICAR UN PROVEEDOR")
+// modificarProveedor(arregloProveedores, 2);
+
+
+
+//Menú del sistema
+console.log("Bienvenido/a a la red de veterinarias 'Los rescataditos'¿Qué desea hacer?: ");
+console.log("----------------------------------------------------------------")
+console.log("1. Dar de alta una nueva sucursal");
+console.log("2. Dar de alta un nuevo cliente");
+console.log("3. Dar de alta un nuevo paciente");
+console.log("4. Dar de alta un nuevo proveedor");
+console.log("5. Modificar datos de una sucursal");
+console.log("6. Modificar datos de un cliente");
+console.log("7. Modificar datos de un paciente");
+console.log("8. Modificar datos de un proveedor");
+console.log("9. Dar de baja una sucursal");
+console.log("10. Dar de baja un paciente");    
+console.log("11. Dar de baja un cliente");
+console.log("12. Dar de baja un proveedor");
+console.log("13. Salir")
+
+console.log("----------------------------------------------------------------")
+
+//Controla que la opcion ingresada sea válida y si no es valida vuelve a pedir que ingrese una opcion.
+
+let opcion: number;
+do {
+    opcion = rls.questionInt("Ingrese la opcion numerica que desee: ");
+    if (opcion > 13 || opcion < 1) {
+        console.log("Por favor ingrese un numero entre 1 y 12");
+    }
+
+}
+while (opcion > 13 || opcion < 1);
+console.log("Opción válida seleccionada:", opcion);
+
+// Una vez que se ha seleccionado una opción valida, se ejecuta el código correspondiente a ese número.
+switch (opcion) {
+    case 1:
+        altaVeterinaria( arregloVeterinarias, listaClientes, listaGeneralMascotas);    
+        break;
+    case 2:
+        altaCliente(listaClientes);
+        break;
+    case 3:
+        altaPaciente(listaClientes, listaGeneralMascotas);
+        break;
+    case 4:
+        altaProveedores(listaProveedores);
+        break;
+    case 5:
+        modificarVeterinaria(arregloVeterinarias, 5, listaClientes, listaGeneralMascotas);
+        break;
+    case 6:
+        modificarNombreCliente(listaClientes);
+        modificarTelefonoCliente(listaClientes);
+        break;
+        
+   
+}
+ 
+
